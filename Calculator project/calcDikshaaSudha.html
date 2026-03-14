@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS29 Calculator</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    
+<div class="container">
+    <div class="floating-nav">
+        <button type="button" class="nav-circle sci-toggle" onclick="togglePanel('scipanel')" title="Scientific">S</button>
+        <button type="button" class="nav-circle theme-toggle" onclick="toggleTheme()" title="Theme">🌓</button>
+        <button type="button" class="nav-circle hist-toggle" onclick="togglePanel('histpanel')" title="History">H</button>
+    </div>
+
+    <div class="calcwrapper">
+        <div id="scipanel" class="sidepanel left-drawer">
+            <h3>SCIENTIFIC</h3>
+            <div class="sidegrid">
+                <button type="button" class="scibtn" onclick="add('√(')">√</button>
+                <button type="button" class="scibtn" onclick="add('π')">π</button>
+                <button type="button" class="scibtn" onclick="add('^')">^</button>
+                <button type="button" class="scibtn" onclick="add('!')">!</button>
+
+
+                <button type="button" class="scibtn" id="degbtn" onclick="toggleDeg()">Deg</button>
+                <button type="button" class="scibtn" onclick="add('sin(')">sin</button>
+                <button type="button" class="scibtn" onclick="add('cos(')">cos</button>
+                <button type="button" class="scibtn" onclick="add('tan(')">tan</button>
+
+
+                <button type="button" class="scibtn" onclick="add('inv')">Inv</button>
+                <button type="button" class="scibtn" onclick="add('e')">e</button>
+                <button type="button" class="scibtn" onclick="add('ln(')">ln</button>
+                <button type="button" class="scibtn" onclick="add('log(')">log</button>
+
+            
+                <button type="button" class="scibtn" onclick="add('(')">(</button>
+                <button type="button" class="scibtn" onclick="add(')')">)</button>
+                <button type="button" class="scibtn" onclick="add('%')">%</button>
+                <button type="button" class="scibtn" onclick="add('exp(')">exp</button>
+            </div>
+        </div>
+
+        <div class="calculator">
+            <form name="calc">
+                <div class="display">
+                    <input type="text" id="display" name="display" readonly placeholder="0">
+                </div>
+                <div class="buttons">
+                    <button type="button" class="extra" onclick="clearDisplay()">AC</button>
+                    <button type="button" class="extra" onclick="clearDisplay()">C</button>
+                    <button type="button" class="extra" onclick="backspace()">⌫</button>
+                    <button type="button" class="opbtn" onclick="add('/')">÷</button>
+                
+                    <button type="button" class="numbtn" onclick="add('7')">7</button>
+                    <button type="button" class="numbtn" onclick="add('8')">8</button>
+                    <button type="button" class="numbtn" onclick="add('9')">9</button>
+                    <button type="button" class="opbtn" onclick="add('*')">×</button>
+                
+                    <button type="button" class="numbtn" onclick="add('4')">4</button>
+                    <button type="button" class="numbtn" onclick="add('5')">5</button>
+                    <button type="button" class="numbtn" onclick="add('6')">6</button>
+                    <button type="button" class="opbtn" onclick="add('-')">-</button>
+                
+                    <button type="button" class="numbtn" onclick="add('1')">1</button>
+                    <button type="button" class="numbtn" onclick="add('2')">2</button>
+                    <button type="button" class="numbtn" onclick="add('3')">3</button>
+                    <button type="button" class="opbtn" onclick="add('+')">+</button>
+                
+                    <button type="button" class="numbtn" onclick="add('.')">.</button>
+                    <button type="button" class="numbtn" onclick="add('0')">0</button>
+                    <button type="button" class="equal" onclick="calculate()">=</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="histpanel" class="sidepanel right-drawer">
+            <h3>HISTORY</h3>
+            <div id="historycontent"></div>
+            <button type="button" class="clearbtn" onclick="clearHistory()">Clear All</button>
+        </div>
+    </div>
+</div>
+
+<script src="func.js"></script>
+</body>
+</html>
